@@ -1,21 +1,47 @@
 #include <SFML/Graphics.hpp>
+#include <vector>
+#include "Player.h"
+#include "GameObject.h"
+#include "Enemy.h"
+
 
 int main()
 {
-    auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "CMake SFML Project");
-    window.setFramerateLimit(144);
+    sf::RenderWindow window(sf::VideoMode({800, 600}), "OOP Game");
+    sf::Clock deltaClock;
 
-    while (window.isOpen())
+    std::vector<GameObject*> gameObjects;   // GameObjects 포인터들을 담을 공구함
+
+    gameObjects.push_back(new Player()); // 힙에 Player 생성, 그 '주소'를 공구함에 넣기
+
+    for (int i = 0; i < 3; i++)
     {
+        gameObjects.push_back(new Enemy());
+    }
+
+    while(window.isOpen())
+    {
+        
+        sf::Time dt = deltaClock.restart();
+
         while (const std::optional event = window.pollEvent())
         {
             if (event->is<sf::Event::Closed>())
-            {
                 window.close();
-            }
         }
 
-        window.clear();
+        for (GameObject* obj : gameObjects)
+        {
+            obj->update(dt);
+        }
+    
+        window.clear(sf::Color::Black);
+
+        for (GameObject* obj : gameObjects)
+        {
+            obj->draw(window);
+        }
+
         window.display();
     }
 }
