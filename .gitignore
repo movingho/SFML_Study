@@ -1,6 +1,30 @@
-build
-out
-.cache
-.idea
-.vs
-.vscode
+# CMake / Build directories
+build/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+out/
+bin/
+
+# Visual Studio generated files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+*.exe
+*.dll
+*.obj
+*.o
+*.lib
+*.a
+*.pdb
+*.ilk
+
+# Other
+*.log
+*.tlog
+*.pch
