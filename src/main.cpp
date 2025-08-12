@@ -31,20 +31,13 @@ int main()
                 Player* p = nullptr;
                 Enemy* e = nullptr;
                 
-                if ((p = dynamic_cast<Player*>(objA)) && (e = dynamic_cast<Enemy*>(objB)))
-                {
+                bool case1 = (dynamic_cast<Player*>(objA) != nullptr && dynamic_cast<Enemy*>(objB) != nullptr);
+                bool case2 = (dynamic_cast<Enemy*>(objA) != nullptr && dynamic_cast<Player*>(objB) != nullptr);
 
-                }
-                else if ((p = dynamic_cast<Player*>(objB)) && (e = dynamic_cast<Enemy*>(objA)))
+                if (case1 || case2)
                 {
-
+                    std::cout << "Efficient Collision Check: Player and Enemy!" << std::endl;
                 }
-                else
-                {
-                    continue;
-                }
-                std::cout << "Efficient Collision Check: Player and Enemy!" << std::endl;
-
             }
         }
         
