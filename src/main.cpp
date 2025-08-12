@@ -21,17 +21,30 @@ int main()
 
     while(window.isOpen())
     {
-        for (auto objA : gameObjects)
+        for (size_t i = 0; i < gameObjects.size(); i++)
         {
-            for (auto objB : gameObjects)
+            for (size_t j = i; j < gameObjects.size(); j++)
             {
-                Player* player = dynamic_cast<Player*>(objA);
-                Enemy* enemy = dynamic_cast<Enemy*>(objB);
+                GameObject* objA = gameObjects[i];
+                GameObject* objB = gameObjects[i];
 
-                if (player != nullptr && enemy != nullptr)
+                Player* p = nullptr;
+                Enemy* e = nullptr;
+                
+                if ((p = dynamic_cast<Player*>(objA)) && (e = dynamic_cast<Enemy*>(objB)))
                 {
-                    std::cout << "Dynamic_cast check:: Plyer and Enemy detected!!!" << std::endl;
+
                 }
+                else if ((p = dynamic_cast<Player*>(objB)) && (e = dynamic_cast<Enemy*>(objA)))
+                {
+
+                }
+                else
+                {
+                    continue;
+                }
+                std::cout << "Efficient Collision Check: Player and Enemy!" << std::endl;
+
             }
         }
         
