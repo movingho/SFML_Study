@@ -38,10 +38,17 @@ int main()
         window.clear(sf::Color::Black);
 
         for (GameObject* obj : gameObjects)
-        {
+        { 
             obj->draw(window);
         }
 
         window.display();
     }
+
+    for (GameObject* obj : gameObjects)
+    {
+        delete obj;
+    }
+
+    gameObjects.clear();
 }

@@ -47,3 +47,5 @@ void Player::draw(sf::RenderWindow& window)
 {
 	window.draw(m_rectangle);
 }
+
+int Player::getScore() const { return m_playerScore; }
