@@ -16,5 +16,4 @@ public:
 private:
     sf::RectangleShape m_rectangle;
     const float m_moveSpeed = 300.f;
-    int m_playerScore = 100;
 };

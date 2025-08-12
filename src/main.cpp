@@ -21,6 +21,19 @@ int main()
 
     while(window.isOpen())
     {
+        for (auto objA : gameObjects)
+        {
+            for (auto objB : gameObjects)
+            {
+                Player* player = dynamic_cast<Player*>(objA);
+                Enemy* enemy = dynamic_cast<Enemy*>(objB);
+
+                if (player != nullptr && enemy != nullptr)
+                {
+                    std::cout << "Dynamic_cast check:: Plyer and Enemy detected!!!" << std::endl;
+                }
+            }
+        }
         
         sf::Time dt = deltaClock.restart();
 

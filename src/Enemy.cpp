@@ -28,8 +28,3 @@ void Enemy::draw(sf::RenderWindow& window)
 {
 	window.draw(m_circle);
 }
-
-int Enemy::getHealth() const
-{
-	return m_enemyHealth;
-}
