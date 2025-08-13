@@ -21,27 +21,29 @@ int main()
 
     while(window.isOpen())
     {
-        for (size_t i = 0; i < gameObjects.size(); i++)
+        
+        
+        sf::Time dt = deltaClock.restart();for (size_t i = 0; i < gameObjects.size(); i++)
         {
-            for (size_t j = i; j < gameObjects.size(); j++)
+            for (size_t i = 0; i < gameObjects.size(); i++)
             {
-                GameObject* objA = gameObjects[i];
-                GameObject* objB = gameObjects[i];
-
-                Player* p = nullptr;
-                Enemy* e = nullptr;
-                
-                bool case1 = (dynamic_cast<Player*>(objA) != nullptr && dynamic_cast<Enemy*>(objB) != nullptr);
-                bool case2 = (dynamic_cast<Enemy*>(objA) != nullptr && dynamic_cast<Player*>(objB) != nullptr);
-
-                if (case1 || case2)
+                for (size_t j = i + 1; j < gameObjects.size(); j++)
                 {
-                    std::cout << "Efficient Collision Check: Player and Enemy!" << std::endl;
+                    GameObject* objA = gameObjects[i];
+                    GameObject* objB = gameObjects[i];
+
+                    auto typeA = objA->getType();
+                    auto typeB = objB->getType();
+
+                    if ((typeA == ObjectType::Player && typeB == ObjectType::Enemy) || 
+                        (typeA == ObjectType::Enemy && typeB == ObjectType::Player))
+                    {
+                        std::cout << "Collision Detected between Player and Enemy!!!";
+                    }
                 }
             }
+            
         }
-        
-        sf::Time dt = deltaClock.restart();
 
         while (const std::optional event = window.pollEvent())
         {

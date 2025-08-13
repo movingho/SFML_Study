@@ -47,3 +47,8 @@ void Player::draw(sf::RenderWindow& window)
 {
 	window.draw(m_rectangle);
 }
+
+ObjectType getType()
+{
+	return ObjectType::Player;
+}

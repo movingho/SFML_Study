@@ -8,6 +8,7 @@ public:
 	Enemy();
 	void update(sf::Time dt) override;
 	void draw(sf::RenderWindow& window) override;
+	ObjectType getType() const override;
 private:
 	sf::CircleShape m_circle;
 	const float m_moveSpeed = 250.f;

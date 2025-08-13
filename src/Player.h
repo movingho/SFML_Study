@@ -11,7 +11,7 @@ public:
     void update(sf::Time dt) override;
     void move(sf::Vector2f velocity);
     void draw(sf::RenderWindow& window) override;
-    int getScore() const;
+    ObjectType getType() const override;
 
 private:
     sf::RectangleShape m_rectangle;

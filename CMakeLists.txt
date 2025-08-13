@@ -12,6 +12,23 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(main src/main.cpp src/Player.cpp src/Enemy.cpp)
+add_executable(main 
+    src/main.cpp 
+    src/Player.cpp 
+    src/Enemy.cpp
+)
+
+source_group("Header Files" FILES
+    src/GameObject.h
+    src/Player.h
+    src/Enemy.h
+)
+
+source_group("Source Files" FILES
+    src/main.cpp
+    src/Player.cpp
+    src/Enemy.cpp
+)
+
 target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics)
