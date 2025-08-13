@@ -29,7 +29,7 @@ void Enemy::draw(sf::RenderWindow& window)
 	window.draw(m_circle);
 }
 
-ObjectType getType()
+ObjectType Enemy::getType() const
 {
 	return ObjectType::Enemy;
 }

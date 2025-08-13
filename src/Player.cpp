@@ -48,7 +48,7 @@ void Player::draw(sf::RenderWindow& window)
 	window.draw(m_rectangle);
 }
 
-ObjectType getType()
+ObjectType Player::getType() const
 {
 	return ObjectType::Player;
 }
