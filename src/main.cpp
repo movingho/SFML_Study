@@ -37,7 +37,13 @@ int main()
                 if ((typeA == ObjectType::Player && typeB == ObjectType::Enemy) ||
                     (typeA == ObjectType::Enemy && typeB == ObjectType::Player))
                 {
-                    std::cout << "Collision Detected between Player and Enemy!!!";
+                    {
+                        if (objA->getBounds().findIntersection(objB->getBounds()))
+                        {
+                            GameObject* enemy_to_destroy = (typeA == ObjectType::Enemy) ? objA : objB;
+                            enemy_to_destroy->destroy();
+                        }
+                    }
                 }
             }
 
@@ -62,6 +68,21 @@ int main()
         }
 
         window.display();
+
+        std::vector<GameObject*> survivors;
+
+        for (GameObject* obj : gameObjects)
+        {
+            if (obj->isActive())
+            {
+                survivors.push_back(obj);
+            }
+            else
+            {
+                delete obj;
+            }
+        }
+        gameObjects = survivors;
     }
 
     for (GameObject* obj : gameObjects)

@@ -33,3 +33,7 @@ ObjectType Enemy::getType() const
 {
 	return ObjectType::Enemy;
 }
+
+sf::FloatRect Enemy::getBounds() const {
+	return m_circle.getGlobalBounds();
+}

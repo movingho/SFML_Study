@@ -52,3 +52,7 @@ ObjectType Player::getType() const
 {
 	return ObjectType::Player;
 }
+
+sf::FloatRect Player::getBounds() const {
+	return m_rectangle.getGlobalBounds();
+}

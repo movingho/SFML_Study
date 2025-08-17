@@ -12,6 +12,7 @@ public:
     void move(sf::Vector2f velocity);
     void draw(sf::RenderWindow& window) override;
     ObjectType getType() const override;
+    sf::FloatRect getBounds() const override;
 
 private:
     sf::RectangleShape m_rectangle;
